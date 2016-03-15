@@ -23,7 +23,7 @@ class JitterWrapHandler(tornado.web.RequestHandler): # noqa
         except Exception as e:
             print e
             self.set_status(500)
-            self.write("Shit it broke")
+            self.write("Exception %s" % e)
 
 
 
@@ -38,7 +38,7 @@ APPLICATION = tornado.web.Application(ROUTES)
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Who let the dogs out?')
+    parser = argparse.ArgumentParser(description='Routing handle server')
     args = parser.parse_args()
 
     APPLICATION.listen(settings.PORT)
